@@ -1,0 +1,12 @@
+* text=auto
+
+# Explicitly force LF for files that will be run in a Linux environment.
+*.sh           text eol=lf
+Dockerfile     text eol=lf
+docker-compose.yml text eol=lf
+
+# Enforce LF for consistency on common text-based files.
+*.json         text eol=lf
+*.md           text eol=lf
+.env.example   text eol=lf
+.gitignore     text eol=lf

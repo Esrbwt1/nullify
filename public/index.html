@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NULLIFY - The Open-Source Clerk Killer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #0a0a0a; color: #e0e0e0; text-align: center; padding: 2rem; }
+        .container { max-width: 800px; margin: auto; }
+        h1 { font-size: 3rem; color: #ffffff; margin-bottom: 0.5rem; }
+        h1 span { color: #ff4d4d; }
+        p.subtitle { font-size: 1.5rem; color: #a0a0a0; margin-top: 0; margin-bottom: 2rem; }
+        .cta-button { display: inline-block; background-color: #ff4d4d; color: #fff; padding: 1rem 2rem; text-decoration: none; font-weight: bold; border-radius: 5px; margin: 0.5rem; transition: background-color 0.2s; }
+        .cta-button:hover { background-color: #e60000; }
+        .secondary-button { background-color: #333; }
+        .secondary-button:hover { background-color: #555; }
+        .pain-point { margin-top: 4rem; }
+        .pain-point h2 { font-size: 2rem; color: #fff; }
+        .calculator { background-color: #1a1a1a; padding: 2rem; border-radius: 8px; margin-top: 1rem; }
+        .calculator label { font-size: 1.2rem; display: block; margin-bottom: 1rem; }
+        .calculator input { font-size: 1.2rem; padding: 0.5rem; width: 200px; text-align: center; background-color: #333; border: 1px solid #555; color: #fff; border-radius: 4px; }
+        .calculator .result { margin-top: 1.5rem; font-size: 1.5rem; }
+        .result .cost { font-weight: bold; }
+        .result .clerk-cost { color: #ff4d4d; }
+        .result .nullify-cost { color: #4dff4d; }
+        footer { margin-top: 5rem; color: #777; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stop Paying for Users.<span> Own Your Auth.</span></h1>
+        <p class="subtitle">NULLIFY is the open-source, self-hosted Clerk killer. Unlimited users. Forever free.</p>
+        <div>
+            <a href="[LINK_TO_GITHUB_REPO_ONCE_PUBLIC]" class="cta-button">View on GitHub</a>
+            <a href="[LINK_TO_DOCS_ONCE_CREATED]" class="cta-button secondary-button">Get Started in 3 Minutes</a>
+        </div>
+
+        <div class="pain-point">
+            <h2>Are You Being Robbed by Per-User Pricing?</h2>
+            <div class="calculator">
+                <label for="mau-input">Enter Your Monthly Active Users (MAU)</label>
+                <input type="number" id="mau-input" value="250000" oninput="calculateCost()">
+                <div class="result">
+                    <p>Clerk Monthly Cost: <span class="cost clerk-cost" id="clerk-cost-display">$4,900</span></p>
+                    <p>NULLIFY Monthly Cost: <span class="cost nullify-cost">$0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Forged in Addis Ababa. Built for the world.</p>
+    </footer>
+
+    <script>
+        function calculateCost() {
+            const mauInput = document.getElementById('mau-input');
+            const clerkCostDisplay = document.getElementById('clerk-cost-display');
+            const mau = parseInt(mauInput.value) || 0;
+            
+            let cost = 0;
+            if (mau > 10000) {
+                cost = 100 + ((mau - 10000) * 0.02);
+            }
+            
+            clerkCostDisplay.textContent = '$' + cost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+        // Initial calculation
+        calculateCost();
+    </script>
+</body>
+</html>
